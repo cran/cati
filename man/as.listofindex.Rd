@@ -5,7 +5,7 @@
 }
 
 \description{
-	Transform various results from functions Tstast, com.index or com.index.multi in a list of index. Useful to use the functions plot.listofindex (S3 method) and ses.listofindex.
+	Transform various results from functions Tstast, ComIndex or ComIndexMulti in a list of index. Useful to use the functions plot.listofindex (S3 method) and ses.listofindex.
 }
 
 \usage{
@@ -14,7 +14,7 @@
 
 \arguments{
 	\item{x}{
-		A list of objects of class Tstast, com.index or com.index.multi
+		A list of objects of class Tstast, ComIndex or ComIndexMulti
 	}
 	
 	\item{namesindex}{
@@ -37,52 +37,40 @@
 
 \examples{
 	data(finch.ind)
-	oldpar<-par()
-	
-	####
-	#The function com.index allow to choose your own function 
-	#(like mean, range, variance...) to calculate customize index.
-	
-	require(e1071)
-	
-	funct<-c("mean(x, na.rm=TRUE)", "kurtosis(x, na.rm=TRUE)", 
-	"max(x, na.rm=TRUE) - min(x, na.rm=TRUE)", "CVNND(x)" )
-	
-	res.finch.sp_mn2<-com.index(traits=traits.finch, index=funct, sp=sp.finch,
-	nullmodels=c(2,2,2,2), ind.plot=ind.plot.finch, nperm=9, print=FALSE)
-	
-	res.finch.sp_mn3<-com.index(traits=traits.finch, index=funct, sp=sp.finch,
-	nullmodels=c(3,3,3,3), ind.plot=ind.plot.finch, nperm=9, print=FALSE)
 
-	####
-	#We can represent Standardized Effect Size (ses) using the 
-	#function plot(as.listofindex(list1, list2, list3))
+	res.finch <- Tstats(traits.finch, ind.plot = ind.plot.finch, 
+	sp = sp.finch, nperm = 9, print = FALSE)
 
-	#The function com.index allow to choose your own function 
-	#(like mean, range, variance...) to calculate customize index.
+	\dontrun{
+		#### Use a different regional pool than the binding of studied communities
+		#create a random regional pool for the example
 	
-	funct<-c("mean(x, na.rm=TRUE)", "kurtosis(x, na.rm=TRUE)", 
-	"max(x, na.rm=TRUE) - min(x, na.rm=TRUE)", "CVNND(x)"  )
+		reg.p <- rbind(traits.finch, traits.finch[sample(1:2000,300), ])
 	
-	funct<-c("mean(x, na.rm=TRUE)", "kurtosis(x, na.rm=TRUE)", 
-	"max(x, na.rm=TRUE) - min(x, na.rm=TRUE)", "CVNND(x)"  )
-	
-	res.finch.sp_mn2<-com.index(traits=traits.finch, index=funct, sp=sp.finch, 
-	nullmodels=c(2,2,2,2), ind.plot=ind.plot.finch, nperm=9, print=FALSE)
-	
-	res.finch.sp_mn3<-com.index(traits=traits.finch, index=funct, sp=sp.finch, 
-	nullmodels=c(3,3,3,3), ind.plot=ind.plot.finch, nperm=9, print=FALSE)
+		res.finch2 <- Tstats(traits.finch, ind.plot = ind.plot.finch, 
+	    sp = sp.finch, reg.pool=reg.p, nperm = 9, print = FALSE)	
+	    
+	    plot(as.listofindex(list(res.finch,res.finch2)))
+    
+    
+	    #### Use a different regional pool for each communities
+		#create a random regional pool for each communities for the example
+		list.reg.p <- list(
+		traits.finch[sample(1:290,200), ], traits.finch[sample(100:1200,300), ], 
+		traits.finch[sample(100:1500, 1000), ], traits.finch[sample(300:800,300), ],
+		traits.finch[sample(1000:2000, 500), ], traits.finch[sample(100:900, 700), ] )
 
-	####
-	#We can represent Standardized Effect Size (ses) 
-	#using the function plot(as.listofindex(list1, list2, list3))
-	
-	list.ind2<-list(res.finch.sp_mn2, res.finch.sp_mn3)
-	index.list2<-as.listofindex(list.ind2)
-	
-	plot(index.list2, type="bytraits")
-	
-	plot(index.list2)
+		# Warning: the regional pool need to be larger than the observed communities
+		table(ind.plot.finch)
+		# For exemple, the third community need a regional pool of more than 981 individuals
+		
+		res.finch3 <- Tstats(traits.finch, ind.plot = ind.plot.finch, 
+	    sp = sp.finch, reg.pool=list.reg.p, nperm = 9, print = FALSE)	
+	    
+	    plot(as.listofindex(list(res.finch, res.finch2, res.finch3)))	
+	}
+
+
 }
 
 
