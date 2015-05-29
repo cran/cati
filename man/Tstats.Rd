@@ -109,36 +109,50 @@
 }
 
 \details{
-	S3 method plot:
-	-Normal type plot means, standard deviations, ranges and confidence intervals of T-statistics.
-	-Simple_range type plot means, standard deviations and range of T-statistics
-	-Simple type plot T-statistics for each site and traits and the mean confidence intervals by traits
-	-Barplot type plot means, standard deviations and confidence intervals of T-statistics in a barplot fashion
-	-Bysites type plot each metrics for each sites
-	-Bytraits type plot each metrics for each traits
+	\bold{S3 method plot:}
 	
-	S3 method print: print the structure if the object of class Tstats
+	-\emph{Normal} type plot means, standard deviations, ranges and confidence intervals of T-statistics.
 	
-	S3 method summary: print the summary statistics of the three T-statistics
+	-\emph{Simple_range} type plot means, standard deviations and range of T-statistics
 	
-	Method summary sum_Tstats:
-	-Binary type only test if a T-statistics is significatively different from the null expectation for each trait.
-	-Percent type determine the percentage of sites were the T-statistics is significatively different from the null expectation for each trait. Asterix shows global significance of the test.
-	-P-value type determine the p-value (two unilateral tests) of the T-statistics for each trait and sites.
-	-Site type allows to know in which sites T-statistics deviate from the null expectation.
-	-All type do all the precedent type of summary.
+	-\emph{Simple} type plot T-statistics for each site and traits and the mean confidence intervals by traits
+	
+	-\emph{Barplot} type plot means, standard deviations and confidence intervals of T-statistics in a barplot fashion
+	
+	-\emph{Bysites} type plot each metrics for each sites
+	
+	-\emph{Bytraits} type plot each metrics for each traits
+	
+	
+	\bold{S3 method print}: print the structure if the object of class Tstats
+	
+	
+	\bold{S3 method summary:} print the summary statistics of the three T-statistics
+	
+	
+	\bold{Method summary sum_Tstats:}
+	
+	-\emph{Binary} type only test if a T-statistics is significatively different from the null expectation for each trait.
+	
+	-\emph{Percent} type determine the percentage of sites were the T-statistics is significatively different from the null expectation for each trait. Asterix shows global significance of the test.
+	
+	-\emph{P-value} type determine the p-value (two unilateral tests) of the T-statistics for each trait and sites.
+	
+	-\emph{Site} type allows to know in which sites T-statistics deviate from the null expectation.
+	
+	-\emph{All} type do all the precedent type of summary.
 }
 
 \value{
 	A list of statistics:
 	
-	\item{$tstats$Tstats$T_IP.IC}{Observed ratio between variance of individuals in populations and individuals in communities}
-	\item{$tstats$Tstats$T_IC.IR}{Observed ratio between variance of individuals in communities and individuals in the region}
-	\item{$tstats$Tstats$T_PC.PR}{Observed ratio between variance of populations in communities and populations in the region}
+	\item{Tstats$T_IP.IC}{Observed ratio between variance of individuals in populations and individuals in communities}
+	\item{Tstats$T_IC.IR}{Observed ratio between variance of individuals in communities and individuals in the region}
+	\item{Tstats$T_PC.PR}{Observed ratio between variance of populations in communities and populations in the region}
 	
-	\item{$tstats$Tstats$T_IP.IC_nm}{If nperm is numeric; Result of simulation for T_IP.IC}
-	\item{$tstats$Tstats$T_IC.IR_nm}{If nperm is numeric; Result of simulation for T_IC.IR}
-	\item{$tstats$Tstats$T_PC.PR_nm}{If nperm is numeric; Result of simulation for T_PC.PR}
+	\item{$Tstats$T_IP.IC_nm}{If nperm is numeric; Result of simulation for T_IP.IC}
+	\item{$Tstats$T_IC.IR_nm}{If nperm is numeric; Result of simulation for T_IC.IR}
+	\item{$Tstats$T_PC.PR_nm}{If nperm is numeric; Result of simulation for T_PC.PR}
 	
 	\item{$variances$var_IP}{variance of individuals within populations}    
 	\item{$variances$var_PC}{variance of populations within communities}
