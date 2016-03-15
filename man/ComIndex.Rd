@@ -13,6 +13,7 @@
 }
 
 \usage{
+
 	ComIndex(traits = NULL, index = NULL, nullmodels = NULL, 
 	ind.plot = NULL, sp = NULL, com = NULL, SE = 0, namesindex = NULL,
 	reg.pool = NULL, SE.reg.pool = NULL, nperm = 99, printprogress = TRUE, 
@@ -31,7 +32,7 @@
 \arguments{
 	
 	\item{traits}{
-		Individual Matrix of traits with traits in column.
+		Individual Matrix of traits with traits in column (or species matrix when using "com" instead of "ind.plot"). 
 	}
 	
 	\item{index}{
@@ -130,11 +131,17 @@
 	In most cases, models \strong{local} and \strong{regional.ind} correspond to index at the individual level and the model \strong{regional.pop} and \strong{regional.pop.prab} to index at the species level (or any other aggregate variable like genus, family or functionnal group).
 	
 	S3 method plot for class listofindex:
+	
 	-Normal type plot means, standard deviations, ranges and confidence intervals of T-statistics.
+	
 	-Simple_range type plot means, standard deviations and range of T-statistics
+	
 	-Simple type plot T-statistics for each site and traits and the mean confidence intervals by traits
+	
 	-Barplot type plot means, standard deviations and confidence intervals of T-statistics in a barplot fashion
+	
 	-Bysites type plot each metrics for each sites
+	
 	-Bytraits type plot each metrics for each traits
 }
 
@@ -197,7 +204,7 @@ res.finch.sp_regional.pop<-ComIndex(traits = traits.finch, index = funct, sp = s
  
 name_sp_sites = paste(sp.finch, ind.plot.finch,sep = "_")
 traits.by.pop<-apply(traits.finch, 2 , 
-           function (x) tapply(x, name_sp_sites, mean , na.rm = TRUE))
+           function (x) tapply(x, name_sp_sites, mean, na.rm = TRUE))
 
 sites_bypop<-lapply(strsplit(paste(rownames(traits.by.pop), sep = "_"), split = "_"), 
           function(x) x[3])

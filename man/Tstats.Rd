@@ -56,6 +56,7 @@
 	
 	\item{SE.reg.pool}{
 		A single value or vector of standard errors associated with each traits in each regional pool. Use only if reg.pool is used. Need to have the same dimension as reg.pool.
+
 	}
 	
 	\item{nperm}{
