@@ -1,13 +1,13 @@
-f3f5ce0a1489fd6a171b6e65df1bb257 *DESCRIPTION
-fce5f90512ff18f672764301ec58ec71 *NAMESPACE
-aa009b00d4885cb1bf3812b5084ad338 *R/allfunctions_cati.R
+08619b87feb60ec2b192d1913e49a91e *DESCRIPTION
+3daa8010c5003e61c0073ceb6a0ba4c6 *NAMESPACE
+84b875ba92b5926222fe10d29fcb7799 *R/allfunctions_cati.R
 91d62d1e5ef79a8cac5defa11c9e1db1 *data/finch.ind.RData
 f54ccddd9391143c3cea593ba81afe6e *inst/CITATION
 20f0748a0acd6b07f4a4bd8d6d318c85 *man/AbToInd.Rd
 7c139d6fda801ee035ef364dd98dce95 *man/Auxiliary.functions.rd
 7d70af7f914acca1079e16f299a4f72a *man/CVNND.Rd
-df95a6f8adca306dd5b53c4dd4b00383 *man/ComIndex.Rd
-60fdef2dc61858f9e0965cd02bec9cf7 *man/ComIndexMulti.Rd
+bcef0dc1a58cd040eeace23d332e54b4 *man/ComIndex.Rd
+eb28c8b31c6b0725d1dd7bfbc51e1710 *man/ComIndexMulti.Rd
 621a69533c59fe9b0638354d652ebfa0 *man/Fred.Rd
 327f8239d47ef77536b6482c34e995bf *man/IndexByGroups.Rd
 e5e4b15d7d7e6cf07e9d78700fa54d3c *man/MinMaxMST.Rd
@@ -15,7 +15,7 @@ be3862a5dee58444c58b7ad46ee21072 *man/Pval.Rd
 9b65c01833c1474520a702b553b379c9 *man/RandCom.Rd
 c3a41eaaecbe3c1ae5ade98984789850 *man/RaoRel.Rd
 c41c5f4f53d1cceb6ad4d5d7973f7a12 *man/SumBL.Rd
-1b834460dc262c5ba1be605c5194799d *man/Tstats.Rd
+56efc71bdf903bd4c4cd9ff6d8770ca4 *man/Tstats.Rd
 771fcb61a0a6e636483c74b55b4ab3d3 *man/as.listofindex.Rd
 8233b925cb04f7feff5254272b48664d *man/cati-package.Rd
 5c5ea9300f15edff3a7cdbeb904a7e87 *man/decompCTRE.Rd
