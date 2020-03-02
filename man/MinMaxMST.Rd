@@ -45,7 +45,7 @@
 }
 
 \examples{
-\dontrun{
+\donttest{
 
 	data(finch.ind)
 	

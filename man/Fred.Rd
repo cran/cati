@@ -47,7 +47,7 @@
 
 \examples{
 data(finch.ind)
-\dontrun{
+\donttest{
 #For most multivariate functions we need to replace (or exclude) NA values. 
 #For this example, we use the package mice to complete the data.
 
