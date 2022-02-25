@@ -5,7 +5,7 @@
 }
 
 \description{
-	Transform various results from functions Tstast, ComIndex or ComIndexMulti in a list of index. Useful to use the functions plot.listofindex (S3 method) and ses.listofindex.
+	Transform various results from functions Tstats, ComIndex or ComIndexMulti in a list of index. Useful to use the functions plot.listofindex (S3 method) and ses.listofindex.
 }
 
 \usage{
@@ -14,7 +14,7 @@
 
 \arguments{
 	\item{x}{
-		A list of objects of class Tstast, ComIndex or ComIndexMulti
+		A list of objects of class Tstats, ComIndex or ComIndexMulti
 	}
 	
 	\item{namesindex}{
@@ -41,7 +41,7 @@
 	res.finch <- Tstats(traits.finch, ind.plot = ind.plot.finch, 
 	sp = sp.finch, nperm = 9, print = FALSE)
 
-	\donttest{
+	\dontrun{
 		#### Use a different regional pool than the binding of studied communities
 		#create a random regional pool for the example
 	

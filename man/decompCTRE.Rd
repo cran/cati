@@ -73,7 +73,7 @@
 
 \examples{
 data(finch.ind)
-\donttest{
+\dontrun{
   res.decomp <- decompCTRE(traits = traits.finch, sp = sp.finch, 
   ind.plot = ind.plot.finch, print = FALSE)
 

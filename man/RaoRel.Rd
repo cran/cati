@@ -28,7 +28,7 @@
 	}
 	
 	\item{weight}{
-		Defining if the correction by Villeger & Mouillot (2008) <doi:10.1111/j.1365-2745.2007.01351.x> is applied or not
+		Defining if the correction by Villeger & Mouillot (J Ecol, 2008) is applied or not
 	}
 	
 	\item{Jost}{
@@ -85,23 +85,27 @@
 \examples{
 	data(finch.ind)
 	
-	\donttest{
+	\dontrun{
 		comm <- t(table(ind.plot.finch,1:length(ind.plot.finch)))
 		comm.sp <- table(sp.finch, ind.plot.finch)
 		class(comm.sp) <- "matrix"
 		
 		traits.finch.sp <- apply( apply(traits.finch, 2, scale ), 2, 
-		                          function(x) tapply(x, sp.finch, mean, na.rm = TRUE))
+
+		function(x) tapply(x, sp.finch, mean, na.rm = TRUE))
 		
 		mat.dist <- (as.matrix(dist(traits.finch.sp))^2)/2
 		
 		res.rao <- RaoRel(sample = as.matrix(comm.sp), dfunc = mat.dist, dphyl = NULL, 
 		weight = FALSE, Jost = FALSE, structure = NULL)
+
+		function(x) tapply(x, sp.finch, mean, na.rm=TRUE))
 		
 		mat.dist <- as.matrix(dist(traits.finch.sp))^2
 		
 		res.rao <- RaoRel(sample=as.matrix(comm.sp), dfunc=mat.dist, dphyl=NULL, 
 		weight=FALSE, Jost=FALSE, structure=NULL)
+
 		
 		witRao <- res.rao$FD$Mean_Alpha  #overall within species variance
 		betRao <- res.rao$FD$Beta_add    #between species variance

@@ -90,7 +90,7 @@
 \examples{	
 data(finch.ind)
 
-\donttest{
+\dontrun{
 	#Plot the distribution of trait values for populations, 
 	#species, sites and regional scales. 
 	

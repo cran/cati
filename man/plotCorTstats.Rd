@@ -68,7 +68,7 @@
 	res.finch <- Tstats(traits.finch, ind.plot = ind.plot.finch, 
 	sp = sp.finch, nperm = 9)
 	
-	\donttest{
+	\dontrun{
 		plotCorTstats(res.finch, bysite = FALSE)
 		plotCorTstats(res.finch, bysite = TRUE)
 	}

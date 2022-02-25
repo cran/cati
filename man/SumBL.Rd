@@ -50,7 +50,7 @@ Petchey, OL., and Gaston, KJ. 2002. Functional diversity (FD), species richness 
 
 \examples{
 
-\donttest{
+\dontrun{
 
 data(finch.ind)
 SumBL(traits.finch)

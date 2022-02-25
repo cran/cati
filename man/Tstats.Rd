@@ -200,7 +200,7 @@
 \examples{
 	data(finch.ind)
 	
-\donttest{
+\dontrun{
 	res.finch <- Tstats(traits.finch, ind.plot = ind.plot.finch, 
 	sp = sp.finch, nperm = 9, print = FALSE)
 	

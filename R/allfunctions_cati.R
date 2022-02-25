@@ -75,7 +75,7 @@ barPartvar <- function(partvar, col.bar = NA, ...){
 
 	barplot(partvar, col = col.bar, las = 1, horiz = T, xlab = "% of variance", ...)
 
-	on.exit(par(oldpar))
+  par(oldpar)
 }
 
 
@@ -1835,7 +1835,7 @@ ComIndexMulti <- function(traits = NULL, index = NULL, by.factor = NULL, nullmod
 
 as.listofindex <- function(x, namesindex = NULL) {
 
-	if (class(x) != "list"){x <- list(x)}
+	if (!inherits(x, "list")){x <- list(x)}
 
 	nlist <- length(x)
 	nindex <- vector()
@@ -2347,7 +2347,7 @@ traitflex.anova <- function(formula, specif.avg, const.avg, ...) {
 
   test.has.resid <- function(aov.one)
   {
-		if (class(aov.one)[1] != "anova"){
+		if (!inherits(aov.one[1], "anova")){
 			warning("specified object is not aov result!")
 		}
 
@@ -2465,7 +2465,7 @@ print.traitflex <- function(x, ...)  {
    options(digits = 5)
    print(x$Pvals[-nPvals, ], ...)
   }
-  on.exit(options(op))
+  options(op)
   invisible(x)
  }
 
@@ -3012,7 +3012,7 @@ plotSpPop <- function(traits = NULL, ind.plot = NULL, sp = NULL, col.ind = rgb(0
 				try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent)
 
 				options(warn = -1)
-				if (class(try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent)) == "lm"){
+				if (inherits(try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent), "lm")){
 					if (sum(!is.na(summary(interm)$coefficient[,4]))>0){
 						if (summary(interm)$coefficients[2,4]<p.val & length(interm$fitted.values)>min.ind.signif){
 							lty.lm = 1
@@ -3044,7 +3044,7 @@ plotSpPop <- function(traits = NULL, ind.plot = NULL, sp = NULL, col.ind = rgb(0
 
 			color.lm2 <- col.nonsignif.lm
 
-			if (class(try(lm(traits_by_sites[match(plotsp,rownames(traits_by_sites)),t] ~ traits_by_pop[,t]), silent = silent)) == "lm"){
+			if (inherits(try(lm(traits_by_sites[match(plotsp,rownames(traits_by_sites)),t] ~ traits_by_pop[,t]), silent = silent), "lm")){
 				if (sum(!is.na(summary(interm2)$coefficient[,4])>0)){
 					if (summary(interm2)$coefficients[2,4]<p.val & length(interm2$fitted.values)>min.ind.signif){
 						color.lm2 <- col.signif.lm
@@ -3075,7 +3075,7 @@ plotSpPop <- function(traits = NULL, ind.plot = NULL, sp = NULL, col.ind = rgb(0
 				try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent)
 
 				options(warn = -1)
-				if (class(try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent)) == "lm"){
+				if (inherits(try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent), "lm")){
 					if (sum(!is.na(summary(interm)$coefficient[,4]))>0){
 						if (summary(interm)$coefficients[2,4]<p.val & length(interm$fitted.values)>min.ind.signif){
 							lty.lm = 1
@@ -3183,7 +3183,7 @@ plotSpVar <- function(traits = NULL, ind.plot = NULL, sp = NULL, variable = NULL
 				try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent)
 
 				options(warn = -1)
-				if (class(try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent)) == "lm"){
+				if (inherits(try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent), "lm")){
 					if (sum(!is.na(summary(interm)$coefficient[,4]))>0){
 						if (summary(interm)$coefficients[2,4]<p.val & length(interm$fitted.values)>min.ind.signif){
 							lty.lm = 1
@@ -3216,7 +3216,7 @@ plotSpVar <- function(traits = NULL, ind.plot = NULL, sp = NULL, variable = NULL
 
 			color.lm2 <- col.nonsignif.lm
 
-			if (class(try(lm(traits_by_sites[match(plotsp,rownames(traits_by_sites)),t] ~ traits_by_pop[,t]), silent = silent)) == "lm"){
+			if (inherits(try(lm(traits_by_sites[match(plotsp,rownames(traits_by_sites)),t] ~ traits_by_pop[,t]), silent = silent), "lm")){
 			  if (sum(!is.na(summary(interm2)$coefficient[,4])>0)){
 			    if (summary(interm2)$coefficients[2,4]<p.val & length(interm2$fitted.values)>min.ind.signif){
 						color.lm2 <- col.signif.lm
@@ -3247,7 +3247,7 @@ plotSpVar <- function(traits = NULL, ind.plot = NULL, sp = NULL, variable = NULL
 				try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent)
 
 				options(warn = -1)
-				if (class(try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent)) == "lm"){
+				if (inherits(try( interm <- lm(y.pop[spplot == levels(sp)[s]] ~ x.pop[spplot == levels(sp)[s]]), silent = silent), "lm")){
 					if (sum(!is.na(summary(interm)$coefficient[,4]))>0){
 						if (summary(interm)$coefficients[2,4]<p.val & length(interm$fitted.values)>min.ind.signif){
 							lty.lm = 1
@@ -3336,8 +3336,8 @@ ses <- function(obs = NULL, nullmodel = NULL, val.quant = c(0.025, 0.975) ){
 		warning("Observed matrix have the same number of rows and columns. The function is not able to detect automatically the correspondance between dimension of observed matrix and null model. You need to be sure that the null model is in the form of an array within the first and second dimension corresespond respectively to the first and second dimension of the observed matrix and the third dimension correspond to permutations")
 		cond = c(1,2)
 
-		if (class(nullmodel) == "list"){
-			if (class(nullmodel[[1]]) == "list"){
+		if (inherits(nullmodel, "list")){
+			if (inherits(nullmodel[[1]], "list")){
 				nullmodel <- array(unlist(nullmodel, use.names=FALSE), dim = c(nrow(nullmodel[[1]][[1]]),ncol(nullmodel[[1]][[1]]), length(unlist(nullmodel, use.names=FALSE))/nrow(nullmodel[[1]][[1]])/ncol(nullmodel[[1]][[1]])))
 			}
 
@@ -3347,15 +3347,15 @@ ses <- function(obs = NULL, nullmodel = NULL, val.quant = c(0.025, 0.975) ){
 
 	else{
 
-		if (class(nullmodel) == "list"){
-			if (class(nullmodel[[1]]) == "list"){
+	  if (inherits(nullmodel, "list")){
+	    if (inherits(nullmodel[[1]], "list")){
 				nullmodel <- array(unlist(nullmodel, use.names=FALSE), dim = c(nrow(nullmodel[[1]][[1]]),ncol(nullmodel[[1]][[1]]), length(unlist(nullmodel, use.names=FALSE))/nrow(nullmodel[[1]][[1]])/ncol(nullmodel[[1]][[1]])))
 			}
 
 			else {nullmodel <- array(unlist(nullmodel, use.names=FALSE), dim = c(nrow(nullmodel[[1]]),ncol(nullmodel[[1]]), length(unlist(nullmodel, use.names=FALSE))/nrow(nullmodel[[1]])/ncol(nullmodel[[1]])))}
 		}
 
-		if (class(obs) == "list"){
+		if (inherits(obs, "list")){
 			obs <- matrix(obs[[1]], nrow = nrow(obs[[1]]), ncol = ncol(obs[[1]]))
 		}
 
@@ -3404,7 +3404,7 @@ ses <- function(obs = NULL, nullmodel = NULL, val.quant = c(0.025, 0.975) ){
 }
 
 RaoRel <- function(sample, dfunc, dphyl, weight = FALSE, Jost = FALSE, structure = NULL)  {
-	####function Qdecomp by Villeger & Mouillot (2008) <doi:10.1111/j.1365-2745.2007.01351.x> modify by Wilfried Thuiller #####
+	####function Qdecomp by Villeger & Mouillot (J Ecol, 2008) modify by Wilfried Thuiller #####
 
 	Qdecomp = function(functdist, abundances, w = TRUE) {
 
@@ -3671,7 +3671,7 @@ RaoRel <- function(sample, dfunc, dphyl, weight = FALSE, Jost = FALSE, structure
 
 ###################################################################################################################################
 # 	The Rao function computes alpha, gamma and beta-components for taxonomic, functional and phylogenetic diversity with the Rao index
-# 	The script integrates two functions: "Qdecomp", by Villeger & Mouillot (2008) <doi:10.1111/j.1365-2745.2007.01351.x> modify by Wilfried Thuiller, and "disc", by S. Pavoine, in the package ade4.
+# 	The script integrates two functions: "Qdecomp", by Villeger & Mouillot (J Ecol, 2008) modify by Wilfried Thuiller, and "disc", by S. Pavoine, in the package ade4.
 # 	For a regional assemblage of C local communities gamma = mean(alpha) + beta, where:
 # 	gamma is the diversity of the regional pool
 # 	alpha are the diversities of the local communities
@@ -3682,7 +3682,7 @@ RaoRel <- function(sample, dfunc, dphyl, weight = FALSE, Jost = FALSE, structure
 #	- "abundances": matrix of abundances (c x s) of the s species for the c local communities (or samples)
 #	- "dfunct": matrix (s x s) or dist object with pairwise functional trait distances between the s species
 #	- "dphyl": as dfunct but for phylogenetic distances
-#	- "weight": defining if the correction by Villeger & Mouillot (2008) <doi:10.1111/j.1365-2745.2007.01351.x> is applied or not
+#	- "weight": defining if the correction by Villeger & Mouillot (J Ecol, 2008) is applied or not
 #	- "Jost": defining if the Jost correction is applied (this paper and Jost 2007)
 #	- "structure": a data frame containing the name of the group to which samples belong see
 #   NA are not allowed in 'locabrel <- abundances/ablocist'
@@ -4224,15 +4224,15 @@ Pval <- function (x, na.rm = TRUE) {
 
 		if (dim(obs)[1] != dim(obs)[2]) {
 
-			if (class(nullmodel) == "list"){
-				if (class(nullmodel[[1]]) == "list"){
+		  if (inherits(nullmodel, "list")){
+		    if (inherits(nullmodel[[1]], "list")){
 					nullmodel <- array(unlist(nullmodel, use.names=FALSE), dim = c(nrow(nullmodel[[1]][[1]]),ncol(nullmodel[[1]][[1]]), length(unlist(nullmodel, use.names=FALSE))/nrow(nullmodel[[1]][[1]])/ncol(nullmodel[[1]][[1]])))
 				}
 
 				else {nullmodel <- array(unlist(nullmodel, use.names=FALSE), dim = c(nrow(nullmodel[[1]]),ncol(nullmodel[[1]]), length(unlist(nullmodel, use.names=FALSE))/nrow(nullmodel[[1]])/ncol(nullmodel[[1]])))}
 			}
 
-			if (class(obs) == "list"){
+			if (inherits(obs, "list")){
 				obs <- matrix(obs[[1]], nrow = nrow(obs[[1]]), ncol = ncol(obs[[1]]))
 			}
 
