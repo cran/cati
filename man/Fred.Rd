@@ -46,18 +46,14 @@
 }
 
 \examples{
-data(finch.ind)
-\dontrun{
-#For most multivariate functions we need to replace (or exclude) NA values. 
-#For this example, we use the package mice to complete the data.
-
-comm<-t(table(ind.plot.finch,1:length(ind.plot.finch)))
-
-library(mice)
-traits = traits.finch
-mice<-mice(traits.finch)
-traits.finch.mice<-complete(mice)
-fred<-Fred(traits.finch.mice, ind.plot.finch)
+\donttest{
+  # Simulate a small dataset: 6 plots x 10 individuals, 4 traits, no NAs
+  set.seed(42)
+  n <- 60
+  traits_sim <- matrix(rnorm(n * 4), nrow = n, ncol = 4,
+                       dimnames = list(NULL, c("T1", "T2", "T3", "T4")))
+  plot_sim <- factor(rep(paste0("P", 1:6), each = 10))
+  fred <- Fred(traits_sim, plot_sim)
 }
 }
 

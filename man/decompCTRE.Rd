@@ -67,20 +67,20 @@
 }
 
 \seealso{
-	\code{\link{barplot.decompCTRE}};
+	\code{\link[graphics]{barplot}};
 	\code{\link{traitflex.anova}}
 }
 
 \examples{
 data(finch.ind)
-\dontrun{
+\donttest{
   res.decomp <- decompCTRE(traits = traits.finch, sp = sp.finch, 
   ind.plot = ind.plot.finch, print = FALSE)
 
-  barplot.decompCTRE(res.decomp)
+  barplot(res.decomp)
 
   par(mfrow = c(2,2))
-  barplot.decompCTRE(res.decomp, resume = FALSE)
+  barplot(res.decomp, resume = FALSE)
   par(mfrow = c(1,1))
   }
 }
